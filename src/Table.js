@@ -98,7 +98,29 @@ function characterByMostAppearance(data) {
 }
 
 function speciesByMostAppearance(data) {
+    const items = [];
 
+    for (const [index, value] of data.entries()) {
+        items.push(<tr key={index}>
+            <td>{value.name}</td>
+            <td>{value.characters_count}</td>
+        </tr>)
+    }
+
+    return (
+        <table className="table table-responsive table-bordered table-primary">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Appearance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {items}
+            </tbody>
+
+        </table>
+    );
 }
 
 function largestNoOfVehicle(data) {
