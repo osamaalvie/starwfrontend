@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Button from './Button'
+import Navigate from "./Navigate";
 
 function App() {
 
@@ -11,6 +12,7 @@ function App() {
                 <img src="logo.svg" className="App-logo" alt="logo"/>
                 <div className="col-md-4">
                     <Button/>
+                    <Navigate/>
                 </div>
             </header>
             <div className="content">
