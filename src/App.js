@@ -3,24 +3,24 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src="logo192.png" className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <div className="App">
+            <header className="App-header">
+                <img src="logo.svg" className="App-logo" alt="logo"/>
+                <div className="col-md-4">
+                    <button className="btn btn-warning btn-block" onClick={fetch}>Search</button>
+                </div>
+            </header>
+            <div className="content">
+
+
+            </div>
+        </div>
+    );
+}
+
+function fetch() {
+
 }
 
 export default App;
