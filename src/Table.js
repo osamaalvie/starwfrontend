@@ -124,7 +124,36 @@ function speciesByMostAppearance(data) {
 }
 
 function largestNoOfVehicle(data) {
+    console.log(data);
+    const items = [];
 
+    // for (const [index, value] of data.films.entries()) {
+    //     items.push(<tr key={index}>
+    //         <td>{value.name}</td>
+    //         <td>{value.no_of_vehicles}</td>
+    //         <td>{value.id}</td>
+    //     </tr>)
+    // }
+
+    return (
+        <table className="table table-responsive table-bordered table-primary">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>No of Vehicles</th>
+                <th>Name & Species</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>{data.name}</td>
+                <td>{data.no_of_vehicles}</td>
+                <td>{data.id}</td>
+            </tr>
+            </tbody>
+
+        </table>
+    );
 }
 
 export default Table
