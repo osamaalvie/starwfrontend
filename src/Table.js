@@ -20,7 +20,7 @@ class Table extends Component {
 
         const data = this.props.data.data;
 
-        console.log(data);
+       // console.log(data);
 
         const items = [];
 

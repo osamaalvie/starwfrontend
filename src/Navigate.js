@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withGlobalState} from 'react-globally'
 
 // import axios from 'axios';
 
@@ -37,9 +38,9 @@ class Navigate extends Component {
 
     render() {
         console.log("render");
-        //console.log(this.state.count - 1);
+
         return <div className="col-md-12 align-items-center">
-            <br />
+            <br/>
             <p>{this.state.titles[this.state.count]}</p>
             <button id="btnPrev" className="btn btn-link fa-angle-left mr-1" onClick={this.prev}>Prev</button>
             <span>{this.state.page}/4</span>
@@ -60,6 +61,10 @@ class Navigate extends Component {
                 title: this.state.titles[this.state.count]
 
             });
+
+            this.props.setGlobalState(prevGlobalState => ({
+                counter: prevGlobalState.counter - 1
+            }))
         }
 
 
@@ -75,7 +80,9 @@ class Navigate extends Component {
                 title: this.state.titles[this.state.count]
 
             });
-
+            this.props.setGlobalState(prevGlobalState => ({
+                counter: prevGlobalState.counter + 1
+            }))
 
         }
 
@@ -84,4 +91,4 @@ class Navigate extends Component {
 
 }
 
-export default Navigate;
+export default withGlobalState(Navigate)
