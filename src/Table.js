@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withGlobalState} from "react-globally";
 
 class Table extends Component {
 
@@ -17,11 +18,25 @@ class Table extends Component {
     }
 
     render() {
-
         const data = this.props.data.data;
+        let rendered = "";
+        switch (this.props.counter) {
+            case 0:
+                rendered = longestCrawl(data);
+                break;
+            case 1:
+                rendered = characterByMostAppearance(data);
+                break;
+            case 2:
+                rendered = speciesByMostAppearance(data);
+                break;
+            case 3:
+                rendered = largestNoOfVehicle(data);
+                break;
+        }
 
 
-        return longestCrawl(data);
+        return rendered;
     }
 
 
@@ -56,16 +71,38 @@ function longestCrawl(data) {
     );
 }
 
-function characterByMostAppearance() {
+function characterByMostAppearance(data) {
+    const items = [];
+
+    for (const [index, value] of data.entries()) {
+        items.push(<tr key={index}>
+            <td>{value.name}</td>
+            <td>{value.films_count}</td>
+        </tr>)
+    }
+
+    return (
+        <table className="table table-responsive table-bordered table-primary">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Appearance</th>
+            </tr>
+            </thead>
+            <tbody>
+            {items}
+            </tbody>
+
+        </table>
+    );
+}
+
+function speciesByMostAppearance(data) {
 
 }
 
-function speciesByMostAppearance() {
+function largestNoOfVehicle(data) {
 
 }
 
-function largestNoOfVehicle() {
-
-}
-
-export default Table;
+export default Table
