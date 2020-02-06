@@ -124,7 +124,7 @@ function speciesByMostAppearance(data) {
 }
 
 function largestNoOfVehicle(data) {
-    console.log(data);
+    //console.log(data);
     const items = [];
 
     // for (const [index, value] of data.films.entries()) {
@@ -140,15 +140,15 @@ function largestNoOfVehicle(data) {
             <thead>
             <tr>
                 <th>Name</th>
-                <th>No of Vehicles</th>
+                <th>No of Pilots</th>
                 <th>Name & Species</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>{data.name}</td>
-                <td>{data.no_of_vehicles}</td>
-                <td>{data.id}</td>
+                <td>{data[0].planet}</td>
+                <td>{data[0].no_of_pilots}</td>
+                <td>{data[0].name}</td>
             </tr>
             </tbody>
 
