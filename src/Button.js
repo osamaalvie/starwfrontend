@@ -16,7 +16,7 @@ class Button extends Component {
                 "/api/movies/characterByMostAppearance",
                 "/api/movies/speciesByMostAppearance",
                 "/api/movies/largestNoOfVehicle",
-            ]
+            ],
         };
     }
 
@@ -36,31 +36,38 @@ class Button extends Component {
     fetch = () => {
         const url = this.props.globalState.HOST + this.state.urls[this.props.globalState.counter];
 
+        this.props.setGlobalState(prevGlobalState => ({
+            visible: !prevGlobalState.visible
+        }));
+
+        console.log("Visible:" + this.props.globalState.visible);
+
         axios.get(url, {
             headers: {},
 
-        })
-            .then((response) => {
-                // console.log(response);
+        }).then((response) => {
+            // console.log(response);
 
-                ReactDOM.render(<Table data={response}
-                                       counter={this.props.globalState.counter}/>, document.getElementById('table'));
+            this.props.setGlobalState(prevGlobalState => ({
+                visible: !prevGlobalState.visible
+            }));
 
+            console.log("Visible:" + this.props.globalState.visible);
 
-            })
-            .catch(function (error) {
-                if (error.response) {
-                    console.log(error.response.headers);
-                }
-                else if (error.request) {
-                    console.log(error.request);
-                }
-                else {
-                    console.log(error.message);
-                }
+            ReactDOM.render(<Table data={response}
+                                   counter={this.props.globalState.counter}/>, document.getElementById('table'));
 
-
-            });
+        }).catch(function (error) {
+            if (error.response) {
+                console.log(error.response.headers);
+            }
+            else if (error.request) {
+                console.log(error.request);
+            }
+            else {
+                console.log(error.message);
+            }
+        });
     }
 
 }

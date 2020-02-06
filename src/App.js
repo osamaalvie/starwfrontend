@@ -7,7 +7,11 @@ import Navigate from "./Navigate";
 
 const initialState = {
     counter: 0,
-    HOST: "https://starwar-backend.herokuapp.com"
+    HOST: "http://starwar-backend.herokuapp.com",
+    height: 300,
+    width: 100,
+    // timeout: 6000,
+    visible: false
 };
 
 function App() {
@@ -17,7 +21,7 @@ function App() {
             <div className="App">
                 <header className="App-header">
                     <img src="logo.svg" className="App-logo" alt="logo"/>
-                    <div className="col-md-4">
+                    <div className="col-md-6">
                         <Button/>
                         <Navigate/>
                     </div>

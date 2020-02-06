@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {withGlobalState} from 'react-globally'
+import {withGlobalState} from 'react-globally';
+import Loader from 'react-loader-spinner';
+
 
 // import axios from 'axios';
 
@@ -42,11 +44,20 @@ class Navigate extends Component {
         return <div className="col-md-12 align-items-center">
             <br/>
             <p>{this.state.titles[this.state.count]}</p>
+            <Loader
+                type="Puff"
+                color="#00BFFF"
+                height={this.props.globalState.height}
+                width={this.props.globalState.width}
+                // timeout={initialState.timeout}
+                visible={this.props.globalState.visible}
+            />
             <button id="btnPrev" className="btn btn-link fa-angle-left mr-1" onClick={this.prev}>Prev</button>
             <span>{this.state.page}/4</span>
             <button id="btnNext" className="btn btn-link fa-angle-right ml-1" onClick={this.next}>Next
             </button>
             <br/> <br/>
+
             <div id="table"></div>
         </div>;
     }
