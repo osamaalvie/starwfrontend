@@ -12,10 +12,10 @@ class Button extends Component {
         super(props);
         this.state = {
             urls: [
-                "http://localhost/starwbackend/public/api/movies/byLongestCrawl",
-                "http://localhost/starwbackend/public/api/movies/characterByMostAppearance",
-                "http://localhost/starwbackend/public/api/movies/speciesByMostAppearance",
-                "http://localhost/starwbackend/public/api/movies/largestNoOfVehicle",
+                "/api/movies/byLongestCrawl",
+                "/api/movies/characterByMostAppearance",
+                "/api/movies/speciesByMostAppearance",
+                "/api/movies/largestNoOfVehicle",
             ]
         };
     }
@@ -34,7 +34,7 @@ class Button extends Component {
     }
 
     fetch = () => {
-        const url = this.state.urls[this.props.globalState.counter];
+        const url = this.props.globalState.HOST + this.state.urls[this.props.globalState.counter];
 
         axios.get(url, {
             headers: {},
@@ -43,7 +43,8 @@ class Button extends Component {
             .then((response) => {
                 // console.log(response);
 
-                ReactDOM.render(<Table data={response} counter={this.props.globalState.counter}/>, document.getElementById('table'));
+                ReactDOM.render(<Table data={response}
+                                       counter={this.props.globalState.counter}/>, document.getElementById('table'));
 
 
             })

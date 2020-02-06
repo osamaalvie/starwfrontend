@@ -6,7 +6,8 @@ import Button from './Button'
 import Navigate from "./Navigate";
 
 const initialState = {
-    counter: 0
+    counter: 0,
+    HOST: "http://starwar-backend.herokuapp.com"
 };
 
 function App() {
