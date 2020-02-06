@@ -7,7 +7,7 @@ import Navigate from "./Navigate";
 
 const initialState = {
     counter: 0,
-    HOST: "http://starwar-backend.herokuapp.com",
+    HOST: "https://starwar-backend.herokuapp.com",
     height: 300,
     width: 100,
     // timeout: 6000,
